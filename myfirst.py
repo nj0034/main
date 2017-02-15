@@ -12,6 +12,7 @@ app = Flask(__name__)
 app.secret_key = '23@RASF@#IRJ@#@R@#G@#G@#GSGDGSDGSDGSDGGEWGEWGWG@#G@G@#G@#'
 users = dict()
 memo = dict()
+comment = []
 
 def sample():
     return 1000
@@ -19,7 +20,7 @@ def sample():
 @app.route('/')
 def main():
     if session.get('is_logined') and session.get('is_written'):
-        return render_template('memo_write.html', subject=session.get('subject'), content=session.get('content')) and render_template('main.html', name=session.get('name'), subject=session.get('subject'), content=session.get('content'))
+        return render_template('main.html', name=session.get('name'), subject=session.get('subject'), content=session.get('content'))
     else:
         return render_template('signin.html')
 
@@ -92,6 +93,14 @@ def memo_write():
 @app.route('/board', methods=['GET', 'POST'])
 def board():
     return render_template('board.html')
+
+@app.route('/board_content', methods=['GET'])
+def board_content():
+    if request.method == 'GET':
+        comment = request.form.getlist('comment')
+        return render_template('board_content.html', comment=comment)
+    else:
+        return render_template('board_content.html')
 
 @app.route('/start')
 def start():
