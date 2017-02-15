@@ -55,14 +55,14 @@ if(window.top == this && isLoading == undefined) {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{{ url_for('main') }}">남진's 블로그</a>
+          <a class="navbar-brand" href="{{ url_for('start') }}">남진's 블로그</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="{{ url_for('main') }}">홈으로</a></li>
-            <li><a href="{{ url_for('board') }}">게시판</a></li>
-            <li><a href="{{ url_for('memo_write') }}">메모장</a></li>
-            <li><a href="{{ url_for('start') }}">로그아웃</a></li>
+            <li><a href="{{ url_for('start') }}">홈으로</a></li>
+            <li><a href="{{ url_for('logout') }}">게시판</a></li>
+            <li><a href="{{ url_for('logout') }}">메모장</a></li>
+            <li><a href="{{ url_for('logout') }}">로그인</a></li>
           </ul>
 
         </div>
@@ -156,11 +156,9 @@ if(window.top == this && isLoading == undefined) {
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
           <div class="sidebar-module sidebar-module-inset">
-            <h4>{{ name }}님 환영합니다!!</h4><br>
 
               <h3>이남진의 블로그입니다.</h3>
-            <p>너무나도 유익한 정보가 엄청나게 많은 블로그이며 나갈 때는 로그아웃을 생활화합시다.</p><br>
-
+            <p>너무나도 유익한 정보가 엄청나게 많은 블로그이며 로그인을 하셔야 사용가능합니다다.</p><br>
                <h4> 메모장</h4>
               <p>제목 : {{ subject }}</p>
               <p>내용 : {{ content }}</p><br>
